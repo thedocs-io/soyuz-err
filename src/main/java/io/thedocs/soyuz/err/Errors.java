@@ -57,7 +57,7 @@ public class Errors implements Iterable<Err> {
         return errors.stream().filter(Err::isGlobalScope).collect(Collectors.toList());
     }
 
-    @JsonProperty("field")
+    @JsonProperty("fields")
     public List<Err> getFieldErrors() {
         return errors.stream().filter(Err::isFieldScope).collect(Collectors.toList());
     }
