@@ -5,14 +5,10 @@ apply from: "./mavenCentral.gradle"
 
 group = "io.thedocs"
 archivesBaseName = "soyuz-err"
-version = "3.01"
+version = "3.02"
 
 repositories {
     mavenCentral()
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = "4.6"
 }
 
 dependencies {

@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -60,6 +61,15 @@ public class Errors implements Iterable<Err> {
     @JsonProperty("fields")
     public List<Err> getFieldErrors() {
         return errors.stream().filter(Err::isFieldScope).collect(Collectors.toList());
+    }
+
+    public Errors transform(Function<Err, Err> transform) {
+        return new Errors(
+                this.errors
+                .stream()
+                .map(transform::apply)
+                .collect(Collectors.toList())
+        );
     }
 
     public static Errors ok() {
