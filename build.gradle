@@ -5,7 +5,7 @@ apply from: "./mavenCentral.gradle"
 
 group = "io.thedocs"
 archivesBaseName = "soyuz-err"
-version = "3.02"
+version = "3.03"
 
 repositories {
     mavenCentral()
@@ -17,9 +17,11 @@ dependencies {
             "com.fasterxml.jackson.core:jackson-databind:2.4.4"
     ])
 
-    compileOnly "org.projectlombok:lombok:1.16.18"
+    compileOnly "org.projectlombok:lombok:1.18.8"
+    annotationProcessor "org.projectlombok:lombok:1.18.8"
 
     testCompile([
+            "junit:junit:4.11",
             "org.spockframework:spock-core:1.0-groovy-2.4",
             "io.thedocs:soyuz-is-to:0.72",
             "org.projectlombok:lombok:1.16.18"

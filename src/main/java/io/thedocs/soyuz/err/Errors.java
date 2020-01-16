@@ -35,7 +35,13 @@ public class Errors implements Iterable<Err> {
     }
 
     public Errors add(Collection<Err> errors) {
-        if (errors != null) this.errors.addAll(errors);
+        if (errors != null) {
+            for (Err error : errors) {
+                if (error != null) {
+                    this.errors.add(error);
+                }
+            }
+        }
 
         return this;
     }
